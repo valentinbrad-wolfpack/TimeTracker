@@ -24,4 +24,20 @@
     <string name="new_entry_label">New entry</string>
     <string name="holiday_label">Holiday</string>
 
-</resources>
+    //Timesheet
+    <string name="timesheet_title">Timesheet</string>
+    <string name="time_so_far">Time so far:</string>
+    <string name="tracked_time">%d out of %d</string>
+    <string name="add_now">Add now</string>
+    <string name="expected_hours_per_day">You are expected to track an avg of %d hours per day.</string>
+    <string name="missing_hours_for">Missing hours for %s</string>
+    <string name="month_year">%s, %d</string>
+    <string name="project_label">Project</string>
+    <string name="hours_label">Hours</string>
+    <string name="date_label">Date</string>
+
+    <!--Plurals-->
+    <plurals name="tracked_hours">
+        <item quantity="one">%s hour</item>
+        <item quantity="other">%s hours</item>
+    </plurals></resources>
