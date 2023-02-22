@@ -3,7 +3,7 @@ package com.example.timetracker.presentation.ui.theme
 import androidx.compose.ui.graphics.Color
 
 val CodGray = Color(0xFF0D0D0D)
-val DarkGray = Color(0xFF222222)
+val DarkGray = Color(0xFF212121)
 val MineShaft = Color(0xFF1A1A1A)
 val Gray = Color(0xFF838383)
 val White = Color(0xFFFFFFFF)

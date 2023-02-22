@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -16,8 +17,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.timetracker.R
 import com.example.timetracker.presentation.common.components.LabelValueComponent
-import com.example.timetracker.presentation.ui.theme.CodGray
-import com.example.timetracker.presentation.ui.theme.DarkGray
 import com.example.timetracker.presentation.ui.theme.Dimens
 import com.example.timetracker.presentation.ui.theme.Paddings
 import com.example.timetracker.presentation.ui.theme.TopShapes
@@ -28,7 +27,8 @@ fun EntryListItem(
     modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = modifier.fillMaxWidth(), shape = TopShapes.large
+        modifier = modifier.fillMaxWidth(),
+        shape = TopShapes.large
     ) {
         Column(
             modifier = modifier
@@ -36,7 +36,8 @@ fun EntryListItem(
                 .background(
                     brush = Brush.verticalGradient(
                         colors = listOf(
-                            DarkGray, CodGray
+                            MaterialTheme.colorScheme.surface,
+                            MaterialTheme.colorScheme.background
                         )
                     )
                 )

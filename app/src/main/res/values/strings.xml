@@ -25,7 +25,6 @@
     <string name="holiday_label">Holiday</string>
 
     //Timesheet
-    <string name="timesheet_title">Timesheet</string>
     <string name="time_so_far">Time so far:</string>
     <string name="tracked_time">%d out of %d</string>
     <string name="add_now">Add now</string>
