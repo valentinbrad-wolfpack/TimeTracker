@@ -28,12 +28,12 @@ val Typography = Typography(
     bodyMedium = TextStyle(
         fontFamily = fonts,
         fontWeight = FontWeight.Normal,
-        fontSize = TextSizes.SIZE_16
+        fontSize = TextSizes.SIZE_12
     ),
     bodyLarge = TextStyle(
         fontFamily = fonts,
-        fontWeight = FontWeight.Bold,
-        fontSize = TextSizes.SIZE_16
+        fontWeight = FontWeight.Normal,
+        fontSize = TextSizes.SIZE_14
     ),
     labelSmall = TextStyle(
         fontFamily = fonts,
