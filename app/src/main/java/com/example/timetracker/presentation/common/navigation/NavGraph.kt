@@ -15,11 +15,15 @@ import com.example.timetracker.presentation.timesheet.nav.timesheetGraph
 
 @Composable
 fun NavHostGraph(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     navController: NavHostController,
     setBottomNavBarVisibility: (Boolean) -> Unit
 ) {
-    NavHost(navController = navController, startDestination = LoginDestination.route) {
+    NavHost(
+        navController = navController,
+        startDestination = LoginDestination.route,
+        modifier = modifier
+    ) {
         loginGraph(
             navController = navController,
             setBottomNavBarVisibility = setBottomNavBarVisibility

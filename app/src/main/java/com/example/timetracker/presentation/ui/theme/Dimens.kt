@@ -16,6 +16,7 @@ object Dimens {
     val DIMEN_40 = 40.dp
     val DIMEN_56 = 56.dp
     val DIMEN_70 = 70.dp
+    val DIMEN_90 = 90.dp
     val DIMEN_100 = 100.dp
     val DIMEN_160 = 160.dp
 }

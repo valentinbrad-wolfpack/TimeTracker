@@ -5,8 +5,6 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
@@ -14,25 +12,17 @@ import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavDestination
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import com.example.timetracker.presentation.common.navigation.BottomBarNavigationItem
-import com.example.timetracker.presentation.ui.theme.CodGray
-import com.example.timetracker.presentation.ui.theme.DarkGray
 import com.example.timetracker.presentation.ui.theme.Dimens
 import com.example.timetracker.presentation.ui.theme.Elevations
-import com.example.timetracker.presentation.ui.theme.Shapes
-import com.example.timetracker.presentation.ui.theme.TextSizes
 import com.example.timetracker.presentation.ui.theme.TopShapes
-import com.example.timetracker.presentation.ui.theme.VioletRed
-import com.example.timetracker.presentation.ui.theme.fonts
 
 @Composable
 fun BottomNavBar(
@@ -47,16 +37,18 @@ fun BottomNavBar(
         exit = slideOutVertically { it }
     ) {
         BottomNavigation(
-            backgroundColor = MaterialTheme.colorScheme.surface,
+            backgroundColor = MaterialTheme.colorScheme.background,
             elevation = Elevations.ELEVATION_8,
             modifier = Modifier
-                .height(Dimens.DIMEN_70)
+                .height(Dimens.DIMEN_90)
                 .graphicsLayer {
                     shape = TopShapes.large
                     clip = true
                 }
                 .border(
-                    width = Dimens.DIMEN_1, shape = TopShapes.large, color = DarkGray
+                    width = Dimens.DIMEN_1,
+                    shape = TopShapes.large,
+                    color = MaterialTheme.colorScheme.surface
                 )
         ) {
             items.forEach { screen ->
@@ -75,16 +67,15 @@ fun BottomNavBar(
                         screen.title?.let {
                             Text(
                                 text = stringResource(id = screen.title),
-                                style = TextStyle(
-                                    fontFamily = fonts,
-                                    fontWeight = FontWeight.SemiBold,
-                                    fontSize = TextSizes.SIZE_10
-                                )
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.SemiBold
                             )
                         }
                     },
-                    selectedContentColor = Color.White,
-                    unselectedContentColor = screen.icon?.let { Color.Gray } ?: Color.White,
+                    selectedContentColor = MaterialTheme.colorScheme.onSurface,
+                    unselectedContentColor = screen.icon?.let {
+                        MaterialTheme.colorScheme.secondary
+                    } ?: MaterialTheme.colorScheme.onSurface,
                     enabled = screen.destination?.let { true } ?: false,
                     onClick = {
                         screen.destination?.route?.let { route ->

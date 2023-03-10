@@ -9,14 +9,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.TextField
-import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -36,7 +36,6 @@ import com.example.timetracker.presentation.ui.theme.Gray
 import com.example.timetracker.presentation.ui.theme.Paddings
 import com.example.timetracker.presentation.ui.theme.Shapes
 import com.example.timetracker.presentation.ui.theme.VioletRed
-import com.example.timetracker.presentation.ui.theme.White
 
 @Composable
 fun CredentialsRoundTextField(
@@ -73,7 +72,7 @@ fun CredentialsRoundTextField(
                     Text(
                         text = hint,
                         style = textStyle,
-                        color = Color.DarkGray
+                        color = MaterialTheme.colorScheme.surface
                     )
                 }
             },
@@ -90,12 +89,10 @@ fun CredentialsRoundTextField(
                         modifier = Modifier.clickable() {
                             isPasswordHidden = !isPasswordHidden
                         },
-                        imageVector = if (isPasswordHidden) {
-                            Icons.Default.Visibility
-                        } else {
-                            Icons.Default.VisibilityOff
-                        },
-                        tint = if (isPasswordHidden) White else VioletRed,
+                        imageVector = if (isPasswordHidden) Icons.Default.Visibility
+                        else Icons.Default.VisibilityOff,
+                        tint = if (isPasswordHidden) MaterialTheme.colorScheme.onSurface
+                        else MaterialTheme.colorScheme.primary,
                         contentDescription = null
                     )
                 }
@@ -104,10 +101,10 @@ fun CredentialsRoundTextField(
                 backgroundColor = Color.Transparent,
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,
-                textColor = VioletRed,
-                unfocusedLabelColor = White,
-                focusedLabelColor = White,
-                cursorColor = VioletRed
+                textColor = MaterialTheme.colorScheme.primary,
+                unfocusedLabelColor = MaterialTheme.colorScheme.onSurface,
+                focusedLabelColor = MaterialTheme.colorScheme.onSurface,
+                cursorColor = MaterialTheme.colorScheme.primary
             ),
             keyboardOptions = KeyboardOptions(
                 imeAction = imeAction, keyboardType = keyboardType
@@ -117,12 +114,15 @@ fun CredentialsRoundTextField(
             onValueChange = onValueChange,
             modifier = Modifier
                 .border(
-                    width = Dimens.DIMEN_1, shape = Shapes.large, color = focusBorderColor
+                    width = Dimens.DIMEN_1,
+                    shape = Shapes.large,
+                    color = focusBorderColor
                 )
                 .height(Dimens.DIMEN_70)
                 .fillMaxWidth()
                 .background(
-                    color = Color.Black, shape = Shapes.large
+                    color = MaterialTheme.colorScheme.background,
+                    shape = Shapes.large
                 )
                 .onFocusChanged {
                     focusBorderColor = if (it.isFocused) VioletRed else Gray

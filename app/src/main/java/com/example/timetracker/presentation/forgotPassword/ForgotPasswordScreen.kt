@@ -1,7 +1,6 @@
 package com.example.timetracker.presentation.forgotPassword
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -10,35 +9,25 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.Text
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavController
 import com.example.timetracker.R
 import com.example.timetracker.presentation.common.components.CredentialsRoundTextField
 import com.example.timetracker.presentation.common.components.TopNavBar
 import com.example.timetracker.presentation.ui.theme.Dimens
 import com.example.timetracker.presentation.ui.theme.Shapes
-import com.example.timetracker.presentation.ui.theme.TextSizes
-import com.example.timetracker.presentation.ui.theme.VioletRed
 import com.example.timetracker.presentation.ui.theme.White
-import com.example.timetracker.presentation.ui.theme.fonts
 
 @Composable
 fun ForgotPasswordScreen(
@@ -57,45 +46,40 @@ fun ForgotPasswordScreen(
             Text(
                 text = stringResource(id = R.string.forgot_password),
                 color = White,
-                style = TextStyle(
-                    fontFamily = fonts, fontWeight = FontWeight.Bold, fontSize = TextSizes.SIZE_32
-                )
+                style = MaterialTheme.typography.headlineLarge
             )
             Text(
                 text = stringResource(id = R.string.forgot_password_steps),
                 color = White,
-                style = TextStyle(
-                    fontFamily = fonts, fontWeight = FontWeight.Normal, fontSize = TextSizes.SIZE_14
-                )
+                style = MaterialTheme.typography.bodyLarge
             )
             Spacer(modifier = Modifier.height(Dimens.DIMEN_32))
-            CredentialsRoundTextField(text = "A",
+            CredentialsRoundTextField(
+                text = "A",
                 labelId = R.string.email_label,
                 imeAction = ImeAction.Next,
                 keyboardType = KeyboardType.Email,
                 onValueChange = { },
                 onNextClicked = { },
-                onDoneClicked = {})
+                onDoneClicked = {}
+            )
             Spacer(modifier = Modifier.weight(1f))
             Button(modifier = Modifier
                 .fillMaxWidth()
                 .height(Dimens.DIMEN_56),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = VioletRed,
+                    containerColor = MaterialTheme.colorScheme.primary,
                 ),
                 shape = Shapes.large,
                 onClick = {}) {
                 Text(
                     modifier = Modifier.background(
-                        color = Color.Transparent, shape = Shapes.large
+                        color = Color.Transparent,
+                        shape = Shapes.large
                     ),
                     text = stringResource(id = R.string.send_email),
-                    color = White,
-                    style = TextStyle(
-                        fontFamily = fonts,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = TextSizes.SIZE_14
-                    )
+                    color = MaterialTheme.colorScheme.onPrimary,
+                    style = MaterialTheme.typography.labelSmall
                 )
             }
             Spacer(modifier = Modifier.height(Dimens.DIMEN_40))

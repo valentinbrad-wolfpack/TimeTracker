@@ -1,8 +1,8 @@
 package com.example.timetracker.presentation.login
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -16,17 +16,15 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.Text
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -37,10 +35,6 @@ import com.example.timetracker.presentation.forgotPassword.nav.ForgotPasswordDes
 import com.example.timetracker.presentation.timesheet.nav.TimesheetDestination
 import com.example.timetracker.presentation.ui.theme.Dimens
 import com.example.timetracker.presentation.ui.theme.Shapes
-import com.example.timetracker.presentation.ui.theme.TextSizes
-import com.example.timetracker.presentation.ui.theme.VioletRed
-import com.example.timetracker.presentation.ui.theme.White
-import com.example.timetracker.presentation.ui.theme.fonts
 
 @Composable
 fun LoginScreen(
@@ -59,38 +53,34 @@ fun LoginScreen(
                 modifier = Modifier.fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(
+                Image(
                     modifier = Modifier.size(Dimens.DIMEN_160),
                     painter = painterResource(id = R.drawable.app_logo),
-                    tint = VioletRed,
                     contentDescription = null
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
             Text(
-                text = stringResource(id = R.string.hello), color = White, style = TextStyle(
-                    fontFamily = fonts,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = TextSizes.SIZE_32
-                )
+                text = stringResource(id = R.string.hello),
+                color = MaterialTheme.colorScheme.onSurface,
+                style = MaterialTheme.typography.headlineLarge
             )
             Text(
                 text = stringResource(id = R.string.login_tip),
-                color = White,
-                style = TextStyle(
-                    fontFamily = fonts,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = TextSizes.SIZE_14
+                color = MaterialTheme.colorScheme.onSurface,
+                style = MaterialTheme.typography.bodyLarge,
+
                 )
-            )
             Spacer(modifier = Modifier.height(Dimens.DIMEN_32))
-            CredentialsRoundTextField(text = "A",
+            CredentialsRoundTextField(
+                text = "A",
                 labelId = R.string.email_label,
                 imeAction = ImeAction.Next,
                 keyboardType = KeyboardType.Email,
                 onValueChange = { },
                 onNextClicked = { },
-                onDoneClicked = {})
+                onDoneClicked = {}
+            )
             Spacer(modifier = Modifier.height(Dimens.DIMEN_12))
             CredentialsRoundTextField(
                 text = "A",
@@ -104,12 +94,8 @@ fun LoginScreen(
             Spacer(modifier = Modifier.height(Dimens.DIMEN_32))
             Text(
                 text = stringResource(id = R.string.forgot_password),
-                color = White,
-                style = TextStyle(
-                    fontFamily = fonts,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = TextSizes.SIZE_12
-                ),
+                color = MaterialTheme.colorScheme.onSurface,
+                style = MaterialTheme.typography.bodyMedium,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -123,7 +109,7 @@ fun LoginScreen(
                 .fillMaxWidth()
                 .height(Dimens.DIMEN_56),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = VioletRed,
+                    containerColor = MaterialTheme.colorScheme.primary,
                 ),
                 shape = Shapes.large,
                 onClick = {
@@ -132,15 +118,12 @@ fun LoginScreen(
             ) {
                 Text(
                     modifier = Modifier.background(
-                        color = Color.Transparent, shape = Shapes.large
+                        color = Color.Transparent,
+                        shape = Shapes.large
                     ),
                     text = stringResource(id = R.string.sign_in),
-                    color = White,
-                    style = TextStyle(
-                        fontFamily = fonts,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = TextSizes.SIZE_14
-                    )
+                    color = MaterialTheme.colorScheme.onSurface,
+                    style = MaterialTheme.typography.labelSmall
                 )
             }
             Spacer(modifier = Modifier.height(Dimens.DIMEN_40))

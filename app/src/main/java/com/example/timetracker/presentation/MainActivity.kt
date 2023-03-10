@@ -102,11 +102,13 @@ class MainActivity : ComponentActivity() {
                     backgroundColor = CodGray,
                     scaffoldState = scaffoldState
                 ) { paddingValues ->
-                    NavHostGraph(navController = navController,
-                        modifier = Modifier.padding(paddingValues),
+                    NavHostGraph(
+                        navController = navController,
+                        modifier = Modifier.padding(bottom = paddingValues.calculateBottomPadding()),
                         setBottomNavBarVisibility = { isVisible ->
                             bottomNavBarVisibility = isVisible
-                        })
+                        }
+                    )
                 }
             }
         }

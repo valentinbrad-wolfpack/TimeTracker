@@ -19,35 +19,38 @@ private val DarkColorScheme = darkColorScheme(
     primary = VioletRed,
     onPrimary = White,
     secondary = Gray,
+    onSecondary = White,
     tertiary = RobinEggBlue,
     onTertiary = White,
-    surface = CodGray,
+    surface = DarkGray,
     onSurface = White,
     background = CodGray,
     onBackground = White,
     error = Scarlet,
-    onError = White,
+    onError = White
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = White,
-    onPrimary = CodGray,
+    primary = VioletRed,
+    onPrimary = White,
     secondary = Gray,
-    background = White,
-    onBackground = CodGray
+    onSecondary = White,
+    tertiary = RobinEggBlue,
+    onTertiary = White,
+    surface = DarkGray,
+    onSurface = White,
+    background = CodGray,
+    onBackground = White,
+    error = Scarlet,
+    onError = White
 )
 
 @Composable
 fun TimeTrackerTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }

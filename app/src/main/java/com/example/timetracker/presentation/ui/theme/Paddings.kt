@@ -12,6 +12,7 @@ object Paddings {
     val PADDING_20 = 20.dp
     val PADDING_24 = 24.dp
     val PADDING_32 = 32.dp
+    val PADDING_40 = 40.dp
     val PADDING_48 = 48.dp
     val PADDING_56 = 56.dp
     val PADDING_80 = 80.dp

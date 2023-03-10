@@ -14,3 +14,9 @@ val TopShapes = Shapes(
     medium = RoundedCornerShape(topStart = Radius.RADIUS_16, topEnd = Radius.RADIUS_16),
     large = RoundedCornerShape(topStart = Radius.RADIUS_24, topEnd = Radius.RADIUS_24)
 )
+
+val BottomShapes = Shapes(
+    small = RoundedCornerShape(bottomStart = Radius.RADIUS_8, bottomEnd = Radius.RADIUS_8),
+    medium = RoundedCornerShape(bottomStart = Radius.RADIUS_16, bottomEnd = Radius.RADIUS_16),
+    large = RoundedCornerShape(bottomStart = Radius.RADIUS_24, bottomEnd = Radius.RADIUS_24)
+)
